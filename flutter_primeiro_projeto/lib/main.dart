@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'pages/container/container_page.dart';
 import 'pages/home/home_page.dart';
+import 'pages/rows_columns/rows_columns_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/container': (_) => ContainerPage(),
+        '/rows-columns': (_) => RowsColumnsPage(),
       },
     );
   }
