@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_primeiro_projeto/pages/media_query/media_query_page.dart';
 
@@ -6,7 +8,7 @@ import 'pages/home/home_page.dart';
 import 'pages/rows_columns/rows_columns_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       routes: {
         '/': (context) => const HomePage(),
         '/container': (_) => ContainerPage(),
